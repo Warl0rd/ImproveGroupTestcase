@@ -5,6 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import ru.sokolov.pricelist.models.Cathegory;
+import ru.sokolov.pricelist.models.Product;
 
 public class Main {
 
@@ -13,8 +14,10 @@ public class Main {
 		EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("ImproveGroup");
 		EntityManager entitymanager = emfactory.createEntityManager();
 		
+		Product product = entitymanager.find(Product.class, 3);
 		Cathegory cathegory = entitymanager.find(Cathegory.class, 2);
 		
+		System.out.println(product);
 		System.out.println(cathegory);
 		
 		entitymanager.close();
